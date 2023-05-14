@@ -1,4 +1,4 @@
-                                                            0x16. C - Simple Shell
+                                                    0x16. C - Simple Shell
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 This is a collaborative project done by Prosper Echebiri and Frankline Ike. 
 This project is dedicated to ALX-SE.
