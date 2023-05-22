@@ -98,7 +98,7 @@ char **envcopy(void);
 char **_getenv(const char *var);
 
 /* The shell Builtin Functions */
-int (*get_builtin(char * command))(char **args, char **ahead);
+int (*get_builtin(char *cmd))(char **args, char **ahead);
 int shell_exit(char **args, char **ahead);
 int shell_env(char **args, char _attribute_((_unused_)) **ahead);
 int shell_setenv(char **args, char _attribute_((_unused)) **ahead);
