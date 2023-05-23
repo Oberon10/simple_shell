@@ -54,7 +54,7 @@ typedef struct list_s
 typedef struct alias_s
 {
 	char *name;
-	char *value;
+	char *val;
 	struct alias_s *next;
 } alias_t;
 
