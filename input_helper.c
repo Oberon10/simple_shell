@@ -1,19 +1,14 @@
-#include "shell"
+#include "shell.h"
 
-char *get_args(char *line, int *exe);
-int call_args(char **args, char **front, int *exe_ret);
-int run_args(char **args, char **front, int *exe_ret);
-int handle_args(int *exe_ret);
-int check_arg(char **args);
 
 /**
-* get_args - This retrieve a command from input.
-*@line - This is a buffer that stores command.
-@@exe_ret - This returns the value of the last command
-* Return  - if any error occurs return NULL or a pointer to store command.
+* get_args: This retrieve a command from input.
+* @line: This is a buffer that stores command.
+* @exe_ret: This returns the value of the last command
+* Return: if any error occurs return NULL or a pointer to store command.
 *
 */
-char *get_args(char *line, int *exe_ret)
+char *args_getter(char *line, int *exe_ret)
 {
 	size_t n = 0;
 	ssize read;
@@ -47,10 +42,10 @@ char *get_args(char *line, int *exe_ret)
 *return: Value of the last executed command.
 */ 
 
-int call_args(char **args, char **front, int *exe_ret)
+int args_caller(char **args, char **front, int *exe_ret)
 {
 	int ret,index;
-	
+
 	if(!args[0])
 		return *exe_ret;
 	for (index = 0; args[index]; index++)
@@ -96,13 +91,13 @@ int call_args(char **args, char **front, int *exe_ret)
 	return (ret);
 }
 /**
-* run_args - calls the execution of a command.
-* @args an array of arguments.
+*run_args - calls the execution of a command.
+*@args an array of arguments.
 *@front: a double pointer to the beginning of args.
 *@exe_ret : the return value of the parent process last executed command
 *
 */
-int run_args(char **args, char **front, int *exe_ret)
+int args_runner(char **args, char **front, int *exe_ret)
 {
 	int ret, i;
 	int (*builtin)(char **args, char, **front);
@@ -131,7 +126,7 @@ int run_args(char **args, char **front, int *exe_ret)
 * 0/w - the exit value of the last executed command.
 */
 
-int handle_args(int *exe_ret)
+int args_handler(int *exe_ret)
 {
 	int ret = 0, index;
 	char **args, *line = NULL, **front;
@@ -175,7 +170,7 @@ int handle_args(int *exe_ret)
 *return : if a ";", "&&", or "||" is palced  at an invalid position - 2.
 * Otherwise - 0.
 */
-int check_args(char **args)
+int args_checker(char **args)
 {	
 	size_t i;
 	char *cur, *nex;
