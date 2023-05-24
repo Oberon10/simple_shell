@@ -94,7 +94,7 @@ void set_alias(char *name, char *val)
 	}
 	if (!tmp)
 	{
-		add_alias_end(&aliases, name, new_val);
+		alias_add_end(&aliases, name, new_val);
 	}
 }
 
@@ -131,7 +131,7 @@ void print_alias(alias_t *alias)
  *
  * Return: pointer to the arguments
  */
-char **repl_aliases(char **args)
+char **aliases_replace(char **args)
 {
 	alias_t *tmp;
 	int i;
@@ -152,7 +152,7 @@ char **repl_aliases(char **args)
 						(_strlen(tmp->val) + 1));
 				if (!new_val)
 				{
-					free_args(args, args);
+					args_free(args, args);
 					return (NULL);
 				}
 				_strcpy(new_val, tmp->val);

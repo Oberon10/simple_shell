@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
 
 	if (!isatty(STDIN_FILENO))
 	{
-		while (ret != END_OF_FILE && ret != EXIT)
+		while (ret != END_OF_FILE && ret != EXIT_)
 		{
 			ret = args_handler(exe_ret);
 		}
@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
 	{
 		write(STDOUT_FILENO, prompt, 2);
 		ret = args_handler(exe_ret);
-		if (ret == END_OF_FILE || ret == EXIT)
+		if (ret == END_OF_FILE || ret == EXIT_)
 		{
 			if (ret == END_OF_FILE)
 			{

@@ -1,5 +1,8 @@
 #include "shell.h"
 
+
+int create_err(char **args, int error);
+
 /**
  * get_builtin - function that matches a command with a corresponding shell
  * builtin function
@@ -29,7 +32,7 @@ int (*get_builtin(char *cmd))(char **args, char **ahead)
 			break;
 		}
 	}
-	return (fucnts[i].f);
+	return (functs[i].f);
 }
 
 /**
@@ -43,7 +46,7 @@ int (*get_builtin(char *cmd))(char **args, char **ahead)
  *
  * Descriptin: the program exits back to the main function upon returning -3
  */
-int shell_exit(char **args, **ahead)
+int shell_exit(char **args, char **ahead)
 {
 	int i, len = 10;
 	unsigned int num = 0, max;
@@ -131,7 +134,7 @@ int shell_cd(char **args, char __attribute__((__unused__)) **ahead)
 			else
 			{
 				free(oldpwd);
-				return (creat_err(args, 2));
+				return (create_err(args, 2));
 			}
 		}
 	}

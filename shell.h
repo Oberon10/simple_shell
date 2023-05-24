@@ -1,10 +1,11 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#include <fnctl.h>
+#include <fcntl.h>
 #include <signal.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <errno.h>
@@ -64,9 +65,9 @@ alias_t *aliases;
 /* This is the main helpers */
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-char **_strtok(char *cmd);
+/*char **_strtok(char *cmd);*/
 char *get_loc(char *cmd);
-list_t *get_dir_path(char **path);
+list_t *get_dir_path(char *path);
 int exec(char **args, char **front);
 void list_free(list_t *head);
 char *_itoa(int num);
@@ -79,11 +80,11 @@ char **aliases_replace(char **args);
 void line_handler(char **line, ssize_t read);
 void var_replacement(char **args, int *exe_ret);
 char *args_getter(char *line, int *exe_ret);
-int args_caller(char ** args, char **front, int *exe_ret);
-int args_runner(char **args, char **front, int, int *exe_ret);
+int args_caller(char **args, char **front, int *exe_ret);
+int args_runner(char **args, char **front, int *exe_ret);
 
 /* String function */
-char _strchr(char *str, char c);
+char *_strchr(char *str, char c);
 int _strspn(char *str, char *accept);
 int _strcmp(char *str1, char *str2);
 int _strncmp(const char *str1, const char *str2, size_t n);
@@ -91,6 +92,7 @@ int _strlen(const char *str);
 char *_strcat(char *dest, const char *src);
 char *_strncat(char *dest, const char *src, size_t n);
 char *_strcpy(char *dest, const char *src);
+char **_strtok(char *line, char *delim);
 
 /* The Builtin helpers */
 void env_free(void);
@@ -100,16 +102,16 @@ char **_getenv(const char *var);
 /* The shell Builtin Functions */
 int (*get_builtin(char *cmd))(char **args, char **ahead);
 int shell_exit(char **args, char **ahead);
-int shell_env(char **args, char _attribute_((_unused_)) **ahead);
-int shell_setenv(char **args, char _attribute_((_unused)) **ahead);
-int shell_unsetenv(char **args, char _attribute_((_unused))**ahead);
-int shell_cd(char **args, char _attribute_((_unused)) **ahead);
-int shell_alias(char **args, char _attribute_((_unused)) **ahead);
-int shell_help(char **args, char _attribute_((_unused)) **ahead);
+int shell_env(char **args, char __attribute__((__unused__)) **ahead);
+int shell_setenv(char **args, char __attribute__((__unused__)) **ahead);
+int shell_unsetenv(char **args, char __attribute__((__unused__))**ahead);
+int shell_cd(char **args, char __attribute__((__unused__)) **ahead);
+int shell_alias(char **args, char __attribute__((__unused__)) **ahead);
+int shell_help(char **args, char __attribute__((__unused__)) **ahead);
 
 /* The Linkedlist helpers */
 void alias_list_free(alias_t *head);
-alias_t *alias_list_add(alias_t **head, char *name, char *value);
+alias_t *alias_add_end(alias_t **head, char *name, char *value);
 list_t *add_node_end(list_t **head, char *dir);
 void list_free(list_t *head);
 
@@ -124,7 +126,7 @@ char *err_1(char **args);
 char *err_2_exit(char **args);
 
 /* Other prototypes */
-void all_help(void)
+void all_help(void);
 void alias_help(void);
 void help_help(void);
 void exit_help(void);

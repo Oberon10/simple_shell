@@ -48,8 +48,8 @@ int shell_setenv(char **args, char __attribute__((__unused__)) **ahead)
 	{
 		return (create_err(args, -1));
 	}
-	new_value = malloc(_strlen(args[0]) + 1 + _strlen(args[1]) + );
-	if (!new_value)
+	new_val = malloc(_strlen(args[0]) + 1 + _strlen(args[1]) + 1);
+	if (!new_val)
 	{
 		return (create_err(args, -1));
 	}
@@ -73,14 +73,14 @@ int shell_setenv(char **args, char __attribute__((__unused__)) **ahead)
 		return (create_err(args, -1));
 	}
 
-	for (index = 0; environ[i]; i++)
+	for (i = 0; environ[i]; i++)
 	{
 		new_env[i] = environ[i];
 	}
 	free(environ);
 	environ = new_env;
 	environ[i] = new_val;
-	envrion[i + 1] = NULL;
+	environ[i + 1] = NULL;
 
 	return (0);
 }
@@ -116,7 +116,7 @@ int shell_unsetenv(char **args, char __attribute__((__unused__)) **ahead)
 	{
 		return (create_err(args, -1));
 	}
-	for (idx = 0; idx2 = 0; environ[idx]; idx++)
+	for (idx = 0, idx2 = 0; environ[idx]; idx++)
 	{
 		if (*env_var == environ[idx])
 		{

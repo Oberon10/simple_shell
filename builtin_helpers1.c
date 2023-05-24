@@ -53,8 +53,7 @@ void alias_help(void)
  */
 void cd_help(void)
 {
-	char *msg = "cd: cd [DIRECTORY]\n\tChanges the current directory
-		 of the";
+	char *msg = "cd: cd [DIRECTORY]\n\tChanges the current dir of the";
 
 	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = " process to DIRECTORY.\n\n\tIf no argument is given, the ";
