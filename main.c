@@ -1,5 +1,6 @@
 #include "shell.h"
 
+int exec(char **args, char **front);
 void sign_handler(int sign);
 
 /**

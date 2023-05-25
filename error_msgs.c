@@ -1,5 +1,10 @@
 #include "shell.h"
 
+char *env_error(char **args);
+char *err_2_cd(char **args);
+char *err_2_syntax(char **args);
+char *err_1(char **args);
+char *err_2_exit(char **args);
 /**
  * env_error - function that creates an env error messages for the shell
  * @args: an array containing command line arguments

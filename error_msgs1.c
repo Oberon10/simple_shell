@@ -1,5 +1,8 @@
 #include "shell.h"
 
+char *err_126(char **args);
+char *err_127(char **args);
+
 /**
  * err_126 - function that creates error message for permission denied failures
  * @args: an array containing command line arguments

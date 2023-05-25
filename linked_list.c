@@ -1,5 +1,10 @@
 #include "shell.h"
 
+void alias_list_free(alias_t *head);
+/*alias_t *alias_add_end(alias_t **head, char *name, char value);*/
+list_t *add_node_end(list_t **head, char *dir);
+void list_free(list_t *head);
+
 /**
  * alias_add_end - function that adds a node to the end of alias_t linkedlist
  * @head: pointer to the head of the list_t list
@@ -91,7 +96,7 @@ list_t *add_node_end(list_t **head, char *dir)
  * alias_free_list -  function that frees alias linked list
  * @head: this is the head of the alias_t list
  */
-void alias_free_list(alias_t *head)
+void alias_list_free(alias_t *head)
 {
 	alias_t *next;
 

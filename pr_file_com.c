@@ -50,7 +50,7 @@ int cant_open(char *file_path)
  *
  * Return: returns 127 if the file couldn't be opened
  */
-int proc_file_commands(char *file_path, int *exe_ret)
+int proc_file_cmd(char *file_path, int *exe_ret)
 {
 	int ret;
 	unsigned int i, line_size = 0, old_size = 120;

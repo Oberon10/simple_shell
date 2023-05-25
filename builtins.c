@@ -1,6 +1,9 @@
 #include "shell.h"
 
-
+int (*get_builtin(char *cmd))(char **args, char **ahead);
+int shell_exit(char **args, char **ahead);
+int shell_cd(char **args, char __attribute__((__unused__)) **ahead);
+int shell_help(char **args, char __attribute__((__unused__)) **ahead);
 int create_err(char **args, int error);
 
 /**
@@ -12,7 +15,7 @@ int create_err(char **args, int error);
  */
 int (*get_builtin(char *cmd))(char **args, char **ahead)
 {
-	builtin_t functs[] = {
+builtin_t functs[] = {
 		{ "exit", shell_exit },
 		{ "env", shell_env },
 		{ "setenv", shell_setenv },
@@ -42,7 +45,7 @@ int (*get_builtin(char *cmd))(char **args, char **ahead)
  *
  * Return: returns -3 if there are no arguments
  * -2 if the given exit value is invalid
- * O/w - this exits with the given status value
+ * otherwise exits with the given status value
  *
  * Descriptin: the program exits back to the main function upon returning -3
  */

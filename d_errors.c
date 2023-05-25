@@ -1,5 +1,7 @@
 #include "shell.h"
 
+char *_itoa(int num);
+int create_err(char **args, int error);
 int num_len(int num);
 
 /**
@@ -71,7 +73,7 @@ char *_itoa(int num)
 /**
  * create_err - function that writes a custom error message to stderr
  * @args: an array of command line arguments
- * @err: this is the error value
+ * @error: this is the error value
  *
  * Return: returns the error value
  *

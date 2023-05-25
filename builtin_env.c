@@ -1,5 +1,9 @@
 #include "shell.h"
 
+int shell_env(char **args, char __attribute__((__unused__)) **ahead);
+int shell_setenv(char **args, char __attribute__((__unused__)) **ahead);
+int shell_unsetenv(char **args, char __attribute__((__unused__)) **ahead);
+
 /**
  * shell_env - function that prints the current environment
  * @args: an array of command line arguments passed to the program

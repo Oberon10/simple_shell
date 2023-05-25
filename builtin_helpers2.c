@@ -1,5 +1,10 @@
 #include "shell.h"
 
+void env_help(void);
+void setenv_help(void);
+void unsetenv_help(void);
+void help_hist(void);
+
 /**
  * env_help - function that displays information about the env builtin command
  * Return: void

@@ -1,5 +1,6 @@
 #include "shell.h"
 
+list_t *get_dir_path(char *path);
 char *fill_dir_path(char *path);
 
 

@@ -1,5 +1,9 @@
 #include "shell.h"
 
+char *_strcpy(char *dest, const char *src);
+int _strlen(const char *str);
+char *_strcat(char *dest, const char *src);
+char *_strncat(char *dest, const char *src, size_t n);
 
 /**
 * _strlen - function that returns the length of the string.
@@ -34,7 +38,7 @@ int _strlen(const char *str)
 *
 * Description: copy the contents of a string into another string
 */
-char *_stcpy(char *dest, const char *src)
+char *_strcpy(char *dest, const char *src)
 {
 	size_t i;
 

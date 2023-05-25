@@ -1,6 +1,10 @@
 #include "shell.h"
 
-
+char *args_getter(char *line, int *exe_ret);
+int args_caller(char **args, char **front, int *exe_ret);
+int args_runner(char **args, char **front, int *exe_ret);
+int args_handler(int *exe_ret);
+int args_checker(char **args);
 /**
 * args_getter - function that retrieve a command from input.
 * @line: This is a buffer that stores command.

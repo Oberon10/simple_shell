@@ -1,5 +1,11 @@
 #include "shell.h"
 
+void all_help(void);
+void alias_help(void);
+void cd_help(void);
+void exit_help(void);
+void help_help(void);
+
 /**
  * all_help - function that displays all the possible builtin shell commands
  * Return: Void
