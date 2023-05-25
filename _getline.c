@@ -96,7 +96,7 @@ void re_assign_lineptr(char **lineptr, size_t *n, char *buffer, size_t a)
 }
 
 /**
- * _getine - function that reads input from stdin
+ * _getline - function that reads input from stdin
  * @lineptr: a temporary area to store command line input
  * @n: this is the size of the lineptr
  * @stream: the std input stream to read input from

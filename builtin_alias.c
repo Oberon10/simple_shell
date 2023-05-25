@@ -126,7 +126,7 @@ void print_alias(alias_t *alias)
 }
 
 /**
- * repl_aliases - function that searches through the arguments and replace
+ * aliases_replace - function that searches through the arguments and replace
  * any matching alias with their value
  * @args: 2-Dimensional array pointer to the arguments
  * Description: searches through arguments and replace any matching alias with

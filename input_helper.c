@@ -211,7 +211,7 @@ int args_handler(int *exe_ret)
 * args_checker - function that checks if there are any leading
 * ";",";;","&&" or "||"
 * @args: this is a 2D pointer to tokenized commands and arguments.
-* Return : returns -2 if a ";", "&&", or "||" is palced  at an invalid positn
+* Return: returns -2 if a ";", "&&", or "||" is palced  at an invalid positn
 * Otherwise returns 0
 *
 * Description: checks for separators and splits the command and then execute

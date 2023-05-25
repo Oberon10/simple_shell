@@ -93,7 +93,7 @@ list_t *add_node_end(list_t **head, char *dir)
 }
 
 /**
- * alias_free_list -  function that frees alias linked list
+ * alias_list_free -  function that frees alias linked list
  * @head: this is the head of the alias_t list
  */
 void alias_list_free(alias_t *head)
