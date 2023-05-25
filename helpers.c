@@ -54,7 +54,7 @@ char *get_pid(void)
 }
 
 /**
- * get_env_val - function that gets the corresponding value to an environment 
+ * get_env_val - function that gets the corresponding value to an environment
  * variable
  * @begin: this is the environment variable to search for
  * @len: this is the length of the environment variable to search for

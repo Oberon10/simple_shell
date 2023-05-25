@@ -10,7 +10,7 @@ char *err_126(char **args)
 {
 	char *err, *hist_str;
 	int len;
-	
+
 	hist_str = _itoa(hist);
 	if (hist_str == NULL)
 	{

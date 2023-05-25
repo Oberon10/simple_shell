@@ -5,34 +5,39 @@
 * _strlen - function that returns the length of the string.
 * @str : a apointer to the characters string.
 *
-*return : the length of thr character string.
+* Return: returns the length of the character string.
+*
+* Description: this function checks the length of a string and
+* returns the length
 */
 int _strlen(const char *str)
 {
 	int length = 0;
-	
+
 	if (!str)
 	{
 		return (length);
 	}
 	for (length = 0; str[length]; length++)
 		;
-	
+
 	return (length);
 }
 
 /**
-* _strcpy - cpoies the string pointed to the src, including the
-*	terminating null byte, to the buffer pointed by des
+* _strcpy - copies the string pointed to the src, including the
+* terminating null byte, to the buffer pointed by des
 * @dest: pointer to the destination of the copied string.
 * @src: pointer to the source string
 *
 * Return: returns pointer to dest.
+*
+* Description: copy the contents of a string into another string
 */
 char *_stcpy(char *dest, const char *src)
 {
 	size_t i;
-	
+
 	for (i = 0; src[i] != '\0'; i++)
 	{
 		dest[i] = src[i];
@@ -46,13 +51,15 @@ char *_stcpy(char *dest, const char *src)
 * @dest: pointer to the destination string.
 * @src: pointer to source string.
 *
-* Return : returns pointer to destination string.
+* Return: returns pointer to destination string.
+*
+* Description: this concatenates two strings and returns ptr to dest string
 */
-char *_strcat(char *dest, const char * src)
+char *_strcat(char *dest, const char *src)
 {
 	char *desTemp;
 	const char *srcTemp;
-	
+
 	desTemp = dest;
 	srcTemp = src;
 

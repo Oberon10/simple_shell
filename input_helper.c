@@ -2,12 +2,11 @@
 
 
 /**
-* args_getter: function that retrieve a command from input.
+* args_getter - function that retrieve a command from input.
 * @line: This is a buffer that stores command.
 * @exe_ret: This returns the value of the last command
 *
 * Return: returns NULL if any error occurs or a pointer to store command.
-*
 */
 char *args_getter(char *line, int *exe_ret)
 {
@@ -35,29 +34,29 @@ char *args_getter(char *line, int *exe_ret)
 		return (args_getter(line, exe_ret));
 	}
 
-	line[read -1] = '\0';
-	var_replacement (&line, exe_ret);
+	line[read - 1] = '\0';
+	var_replacement(&line, exe_ret);
 	line_handler(&line, read);
 
-	return(line);
+	return (line);
 }
 
 /**
 * args_caller - function that partitions operators from commands
 * and calls them.
-* @fronts: this is an array of arguments.
+* @front: this is an array of arguments.
 * @args: A pointer to pointer to the beginning of args.
 * @exe_ret: this is the return value of the parent process last executed
 * command.
 *
 * Return: returns the value of the last executed command.
-*/ 
+*/
 
 int args_caller(char **args, char **front, int *exe_ret)
 {
 	int ret, i;
 
-	if(!args[0])
+	if (!args[0])
 	{
 		return (*exe_ret);
 	}
@@ -83,23 +82,24 @@ int args_caller(char **args, char **front, int *exe_ret)
 				return (ret);
 			}
 		}
-		else if(_strncmp(args[i], "&&", 2) == 0)
+		else if (_strncmp(args[i], "&&", 2) == 0)
 		{
 			free(args[i]);
 			args[i] = NULL;
 			args = aliases_replace(args);
-			ret = args_runner(args, front,exe_ret);
+			ret = args_runner(args, front, exe_ret);
 			if (*exe_ret == 0)
 			{
 				args = &args[++i];
 				i = 0;
 			}
 			else
-			{	for (i++; args[i]; i++)
+			{
+				for (i++; args[i]; i++)
 				{
 					free(args[i]);
 				}
-				return(ret);
+				return (ret);
 			}
 		}
 	}
@@ -123,9 +123,9 @@ int args_runner(char **args, char **front, int *exe_ret)
 
 	builtin = get_builtin(args[0]);
 
-	if(builtin)
+	if (builtin)
 	{
-	
+
 		ret = builtin(args + 1, front);
 		if (ret != EXIT_)
 		{
@@ -140,7 +140,7 @@ int args_runner(char **args, char **front, int *exe_ret)
 
 	hist++;
 
-	for(i = 0; args[i]; i++)
+	for (i = 0; args[i]; i++)
 	{
 		free(args[i]);
 	}
@@ -162,16 +162,16 @@ int args_handler(int *exe_ret)
 {
 	int ret = 0, i;
 	char **args, *line = NULL, **front;
-	
+
 	line = args_getter(line, exe_ret);
-	if(!line)
+	if (!line)
 	{
 		return (END_OF_FILE);
 	}
-	
+
 	args = _strtok(line, " ");
 	free(line);
-	if(args == NULL)
+	if (args == NULL)
 	{
 		return (ret);
 	}
@@ -182,7 +182,7 @@ int args_handler(int *exe_ret)
 		return (*exe_ret);
 	}
 	front = args;
-	
+
 	for (i = 0; args[i]; i++)
 	{
 		if (_strncmp(args[i], ";", 1) == 0)
@@ -198,7 +198,7 @@ int args_handler(int *exe_ret)
 	{
 		ret = args_caller(args, front, exe_ret);
 	}
-		
+
 	free(front);
 	return (ret);
 }
@@ -207,15 +207,17 @@ int args_handler(int *exe_ret)
 * args_checker - function that checks if there are any leading
 * ";",";;","&&" or "||"
 * @args: this is a 2D pointer to tokenized commands and arguments.
-* Return : returns -2 if a ";", "&&", or "||" is palced  at an invalid position 
+* Return : returns -2 if a ";", "&&", or "||" is palced  at an invalid positn
 * Otherwise returns 0
+*
+* Description: checks for separators and splits the command and then execute
 */
 int args_checker(char **args)
-{	
+{
 	size_t i;
 	char *curr, *next;
 
-	for(i = 0; args[i]; i++)
+	for (i = 0; args[i]; i++)
 	{
 		curr = args[i];
 		if (curr[0] == ';' || curr[0] == '&' || curr[0] == '|')

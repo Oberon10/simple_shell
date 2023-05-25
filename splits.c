@@ -90,7 +90,7 @@ char **_strtok(char *line, char *delim)
 		ptr[j] = malloc(sizeof(char) * (letters + 1));
 		if (!ptr[j])
 		{
-			for (i -= 1; i >= 0; i --)
+			for (i -= 1; i >= 0; i--)
 			{
 				free(ptr[i]);
 			}

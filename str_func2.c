@@ -26,9 +26,9 @@ char *_strchr(char *str, char c)
 
 /**
 * _strspn - gets the length of the profix substring.
-* @strr: The string to besearched.
+* @str: The string to besearched.
 * @accept: The prefix to be measured.
-* Return: The number of bytes in wich
+* Return: returns the number of bytes in which
 * consist only of bytes from accept
 */
 int _strspn(char *str, char *accept)
@@ -40,7 +40,7 @@ int _strspn(char *str, char *accept)
 	{
 		for (index = 0; accept[index]; index++)
 		{
-			if(*str == accept[index])
+			if (*str == accept[index])
 			{
 				bytes++;
 				break;
@@ -65,7 +65,7 @@ int _strcmp(char *str1, char *str2)
 		str1++;
 		str2++;
 	}
-	
+
 	if (*str1 != *str2)
 	{
 		return (*str1 - *str2);

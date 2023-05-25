@@ -28,7 +28,7 @@ void setenv_help(void)
 }
 
 /**
- * unsetenv_help - function that displays info about the shell unsetenv 
+ * unsetenv_help - function that displays info about the shell unsetenv
  * builtin command
  * Return: void
  */

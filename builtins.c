@@ -125,8 +125,8 @@ int shell_cd(char **args, char __attribute__((__unused__)) **ahead)
 		}
 		else
 		{
-			if (stat(args[0], &dir) == 0 && 
-					S_ISDIR(dir.st_mode) && 
+			if (stat(args[0], &dir) == 0 &&
+					S_ISDIR(dir.st_mode) &&
 					((dir.st_mode & S_IXUSR) != 0))
 			{
 				chdir(args[0]);

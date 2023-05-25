@@ -69,13 +69,16 @@ char *_itoa(int num)
 }
 
 /**
- * create_error - function that writes a custom error message to stderr
+ * create_err - function that writes a custom error message to stderr
  * @args: an array of command line arguments
  * @err: this is the error value
  *
  * Return: returns the error value
+ *
+ * Description: This function writes a custom error message to
+ * stderr and returns the error value
  */
-int create_error(char **args, int error)
+int create_err(char **args, int error)
 {
 	char *err;
 

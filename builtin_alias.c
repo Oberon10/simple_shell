@@ -125,9 +125,11 @@ void print_alias(alias_t *alias)
 }
 
 /**
- * repl_aliases - function that searches through the arguments and replace 
- any matching alias with their value
+ * repl_aliases - function that searches through the arguments and replace
+ * any matching alias with their value
  * @args: 2-Dimensional array pointer to the arguments
+ * Description: searches through arguments and replace any matching alias with
+ * their value and returns a pointer to the args
  *
  * Return: pointer to the arguments
  */
@@ -148,7 +150,7 @@ char **aliases_replace(char **args)
 		{
 			if (_strcmp(args[i], tmp->name) == 0)
 			{
-				new_val = malloc(sizeof(char) * 
+				new_val = malloc(sizeof(char) *
 						(_strlen(tmp->val) + 1));
 				if (!new_val)
 				{
