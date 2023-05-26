@@ -1,5 +1,5 @@
-#ifndef SHELL_H_
-#define SHELL_H_
+#ifndef SHELL_H
+#define SHELL_H
 
 #include <fcntl.h>
 #include <signal.h>
@@ -135,6 +135,5 @@ void env_help(void);
 void setenv_help(void);
 void unsetenv_help(void);
 void help_hist(void);
-int pr_file_com(char *file_path, int *exe_ret);
-
+int proc_file_cmd(char *file_path, int *exe_ret);
 #endif /* SHELL_H */
