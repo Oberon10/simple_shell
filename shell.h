@@ -135,6 +135,6 @@ void env_help(void);
 void setenv_help(void);
 void unsetenv_help(void);
 void help_hist(void);
-int proc_file_cmd(char *file_path, int *exe_ret);
+int pr_file_com(char *file_path, int *exe_ret);
 
 #endif /* SHELL_H */
