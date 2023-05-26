@@ -78,12 +78,8 @@ int shell_setenv(char **args, char __attribute__((__unused__)) **ahead)
 	{
 		new_env[i] = environ[i];
 	}
-	free(environ);
-	environ = new_env;
-	environ[i] = new_val;
-	environ[i + 1] = NULL;
-	return (0);
-}
+	free(environ);environ = new_env; environ[i] = new_val; environ[i + 1] = NULL;
+	return (0);}
 /**
  * shell_unsetenv - function that deletes an environment variable from
  * the PATH
