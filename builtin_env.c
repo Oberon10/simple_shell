@@ -60,7 +60,6 @@ int shell_setenv(char **args, char __attribute__((__unused__)) **ahead)
 	_strcpy(new_val, args[0]);
 	_strcat(new_val, "=");
 	_strcat(new_val, args[1]);
-
 	env_var = _getenv(args[0]);
 	if (env_var)
 	{
@@ -69,14 +68,12 @@ int shell_setenv(char **args, char __attribute__((__unused__)) **ahead)
 		return (0);
 	}
 	for (size = 0; environ[size]; size++)
-		;
 	new_env = malloc(sizeof(char *) * (size + 2));
 	if (!new_env)
 	{
 		free(new_val);
 		return (create_err(args, -1));
 	}
-
 	for (i = 0; environ[i]; i++)
 	{
 		new_env[i] = environ[i];
@@ -85,10 +82,8 @@ int shell_setenv(char **args, char __attribute__((__unused__)) **ahead)
 	environ = new_env;
 	environ[i] = new_val;
 	environ[i + 1] = NULL;
-
 	return (0);
 }
-
 /**
  * shell_unsetenv - function that deletes an environment variable from
  * the PATH
